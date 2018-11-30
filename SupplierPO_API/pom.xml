@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.tibco.bw</groupId>
+    <artifactId>SupplierPO_API.parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../SupplierPO_API.parent</relativePath>
+  </parent>
+  <artifactId>SupplierPO_API</artifactId>
+  <packaging>bwear</packaging>
+  <properties>
+    <skipTests>false</skipTests>
+    <project.type>Docker</project.type>
+    <bw.Home>/bwce/2.4</bw.Home>
+    <k8s.property.file>k8s-dev.properties</k8s.property.file>
+    <docker.property.file>docker-dev.properties</docker.property.file>
+    <failIfNoTests>false</failIfNoTests>
+    <tibco.Home>/home/tibco/bwce242</tibco.Home>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.tibco.plugins</groupId>
+        <artifactId>bw6-maven-plugin</artifactId>
+        <version>2.0.0</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>com.tibco.plugins</groupId>
+        <artifactId>bw6-maven-plugin</artifactId>
+        <version>2.0.0</version>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
