@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tibex="http://www.tibco.com/bs3.2/extensions" xmlns:tns="http://www.tibco.com/PurchaseOrder/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PurchaseOrder" targetNamespace="http://www.tibco.com/PurchaseOrder/" tibex:src="file:/C:/Users/rpalve/Desktop/PurchaseOrderConcrete.wsdl">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.tibco.com/PurchaseOrder/" targetNamespace="http://www.tibco.com/PurchaseOrder/">
+      <xsd:element name="submitPurchaseOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="orderId" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="customer" type="customerType"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="items" type="itemType"/>
+            <xsd:element minOccurs="0" name="price" type="xsd:float"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="submitPurchaseOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ReferenceNo" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="customerType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="name" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="address" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="itemType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="productId" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="name" type="xsd:string"/>
+          <xsd:element minOccurs="0" name="quantity" type="xsd:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="submitPurchaseOrderRequest">
+    <wsdl:part element="tns:submitPurchaseOrder" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="submitPurchaseOrderResponse">
+    <wsdl:part element="tns:submitPurchaseOrderResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="PurchaseOrder">
+    <wsdl:operation name="submitPurchaseOrder">
+      <wsdl:input message="tns:submitPurchaseOrderRequest"/>
+      <wsdl:output message="tns:submitPurchaseOrderResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:PurchaseOrder">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="submitPurchaseOrder">
+      <soap:operation soapAction="submitPurchaseOrder" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PurchaseOrder">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="PurchaseOrderSOAP">
+      <soap:address location="http://35.185.28.162:80/SOAPServiceBinding/purchaseOrder/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

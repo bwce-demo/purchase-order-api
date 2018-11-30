@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/SupplierPO_API.module/Service Descriptors/PurchaseOrder_1.0.0.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/T1543586876667Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/SupplierPO_API.module/Service Descriptors/PurchaseOrder_1.0.0.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/T1543588896568Converted/JsonSchema"
+    }
+]}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emulation:EmulationData xmlns:emulation="http:///emulation.ecore" isBW="true" location="/SupplierPO_API.module/Tests/RetailerDetails.bwt">
+  <ProcessNode Id="supplierpo_api.module.RetailerDetails" Name="supplierpo_api.module.RetailerDetails" ModelType="BW" moduleName="SupplierPO_API.module">
+    <Assertion Id="88d8a71e-cf59-4481-8e0d-eabbc31ee543" Name="JDBCQuery" hasDecoration="true">
+      <Lang>urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0</Lang>
+      <Expression>
+&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JDBCQuery&quot;/>&lt;xsl:template match=&quot;/&quot;>&lt;xsl:choose>&lt;xsl:when test=&quot;$JDBCQuery/Record[1]/name='Nevins Nathon'&quot;>&lt;result status=&quot;passed&quot; message=&quot;Assertion passed.&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;result status=&quot;failed&quot; message=&quot;Assertion failed.&quot;/>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/xsl:template>&lt;/xsl:stylesheet></Expression>
+      <OriginalExpression>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JDBCQuery&quot;/>&lt;xsl:template name=&quot;&quot; match=&quot;/&quot;>&lt;Primitive-Assertion>&lt;AssertType>&lt;string>&lt;testInput>&lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/name&quot;/>&lt;/testInput>&lt;goldInput>&lt;xsl:value-of select=&quot;&amp;quot;Nevins Nathon&amp;quot;&quot;/>&lt;/goldInput>&lt;/string>&lt;/AssertType>&lt;/Primitive-Assertion>&lt;/xsl:template>&lt;/xsl:stylesheet></OriginalExpression>
+    </Assertion>
+    <Operation Name="callProcess" serviceName="supplierpo_api.module.RetailerDetails">
+      <Inputs Id="f0c6d84f-706f-4c6e-bce2-8bd337890ce7SupplierPO_API.module_supplierpo_api.module.RetailerDetails_callProcess_Start" Name="Start" isDefault="true" type="CALLPROCESS">
+        <informations Name="input" nameSpace="http://www.example.org/RetailerID">
+          <nameSpaces prefix="tns" nameSapce="http://www.example.org/RetailerID"/>
+          <Parameter Name="tns:RetailerId" Value="1" type="int" nameSpace="http://www.example.org/RetailerID"/>
+        </informations>
+      </Inputs>
+      <resolvedInput inputValue="&lt;tns:RetailerId xmlns:tns='http://www.example.org/RetailerID' >1&lt;/tns:RetailerId>"/>
+    </Operation>
+  </ProcessNode>
+</emulation:EmulationData>

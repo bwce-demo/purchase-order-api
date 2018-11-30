@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1543588896568Converted/JsonSchema" xmlns:tns="/T1543588896568Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="POResponse" type="tns:POResponse"/>
+    <xs:complexType name="POResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PORefId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PORequest" type="tns:PORequest"/>
+    <xs:complexType name="PORequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="orderId" type="xs:string"/>
+            <xs:element minOccurs="0" name="customerId" type="xs:integer"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="items">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="productId" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" type="xs:string"/>
+                        <xs:element minOccurs="0" name="quantity" type="xs:integer"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="price" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

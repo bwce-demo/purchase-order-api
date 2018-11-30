@@ -1,0 +1,92 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "PurchaseOrder",
+    "x-lastModified": "Nov 30, 2018 06:07AM PST"
+  },
+  "paths": {
+    "/order": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/POResponse"
+            },
+            "examples": {
+              "application/json": {
+                "PORefId": "42b14868-262d-4db0-bd48-55901dd1d673"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PORequest"
+            }
+          }
+        ],
+        "operationId": "postOrder",
+        "consumes": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "PORequest": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "default": "12345"
+        },
+        "customerId": {
+          "type": "integer",
+          "default": 1
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": {
+                "type": "string",
+                "default": "1"
+              },
+              "name": {
+                "type": "string",
+                "default": "Laptop Bag"
+              },
+              "quantity": {
+                "type": "integer",
+                "default": 2
+              }
+            }
+          }
+        },
+        "price": {
+          "type": "number",
+          "default": 50
+        }
+      }
+    },
+    "POResponse": {
+      "type": "object",
+      "properties": {
+        "PORefId": {
+          "type": "string",
+          "default": "42b14868-262d-4db0-bd48-55901dd1d673"
+        }
+      }
+    }
+  }
+}

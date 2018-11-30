@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:PurchaseOrder="http://www.tibco.com/PurchaseOrder/" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_KdVYQPSsEeiXL4FmY4ShBg" targetNamespace="http://tns.tibco.com/bw/composite/SupplierPO_API.module" name="SupplierPO_API.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_CkorwfSuEeiXL4FmY4ShBg" name="order" promote="ComponentProcess/order">
+    <sca:interface.wsdl xmi:id="_Ckqg8PSuEeiXL4FmY4ShBg" interface="http://xmlns.example.com/20181130195811PLT#wsdl.interface(order)" scaext:wsdlLocation="../Processes/supplierpo_api/module/SubmitPO.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_CkrIAPSuEeiXL4FmY4ShBg" name="RestService" path="/order" docBasePath="http://localhost:7777/SupplierPO_API.module" docResourcePath="Order" basePath="/" connector="supplierpo_api.module.SubmitPO" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/PurchaseOrder_1.0.0.json">
+      <operation xmi:id="_CksWIPSuEeiXL4FmY4ShBg" operationName="post" nickname="postOrder" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_ClKQMPSuEeiXL4FmY4ShBg"/>
+      <advancedConfig xmi:id="_CkrIAfSuEeiXL4FmY4ShBg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_CksWIfSuEeiXL4FmY4ShBg" bindingName="RestService"/>
+  </sca:service>
+  <sca:reference xmi:id="_ohs44vSuEeiXL4FmY4ShBg" multiplicity="0..1" name="PurchaseOrder" wiredByImpl="false" promote="ComponentProcess/PurchaseOrder">
+    <sca:interface.wsdl xmi:id="_ohs44_SuEeiXL4FmY4ShBg" interface="http://www.tibco.com/PurchaseOrder/#wsdl.interface(PurchaseOrder)" scaext:wsdlLocation="../Service%20Descriptors/PurchaseOrderConcrete.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPReferenceBinding" xmi:id="_ohyYcPSuEeiXL4FmY4ShBg" name="SOAPReferenceBinding" portTypeQName="PurchaseOrder:PurchaseOrder" transportBindingType="HTTP" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/SupplierPO_API.module/Service%20Descriptors/PurchaseOrderConcrete.wsdl" serviceQName="PurchaseOrder:PurchaseOrder" portName="PurchaseOrderSOAP" serviceBindingQName="PurchaseOrder:SOAPServiceBinding" locationURI="http://35.185.28.162:80/SOAPServiceBinding/purchaseOrder/" wsdlLocation="platform:/resource/SupplierPO_API.module/Service%20Descriptors/PurchaseOrderConcrete.wsdl">
+      <bindingType xmi:id="_ohy_gPSuEeiXL4FmY4ShBg" style="DOCUMENT"/>
+      <operationConfiguration xmi:id="_ohy_gfSuEeiXL4FmY4ShBg" operationName="submitPurchaseOrder" action="submitPurchaseOrder">
+        <bindingType xmi:id="_ohy_gvSuEeiXL4FmY4ShBg" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_ohy_g_SuEeiXL4FmY4ShBg" messageQName="PurchaseOrder:submitPurchaseOrderRequest" wsdlLocation="platform:/resource/SupplierPO_API.module/Service%20Descriptors/PurchaseOrderConcrete.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_ohy_hPSuEeiXL4FmY4ShBg" partName="parameters" partElementName="PurchaseOrder:submitPurchaseOrder" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_ohy_hfSuEeiXL4FmY4ShBg" messageQName="PurchaseOrder:submitPurchaseOrderResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/SupplierPO_API.module/Service%20Descriptors/PurchaseOrderConcrete.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_ohy_hvSuEeiXL4FmY4ShBg" partName="parameters" partElementName="PurchaseOrder:submitPurchaseOrderResponse" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_ohy_h_SuEeiXL4FmY4ShBg">
+          <inputMapping xmi:id="_ohy_iPSuEeiXL4FmY4ShBg"/>
+          <outputMapping xmi:id="_ohy_ifSuEeiXL4FmY4ShBg" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_ohzmkPSuEeiXL4FmY4ShBg"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_ohzmkfSuEeiXL4FmY4ShBg" bindingName="SOAPReferenceBinding"/>
+  </sca:reference>
+  <sca:property xmi:id="_KpQ7cPSsEeiXL4FmY4ShBg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KpascPSsEeiXL4FmY4ShBg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KphaIPSsEeiXL4FmY4ShBg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Kpp9APSsEeiXL4FmY4ShBg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Kpyf4PSsEeiXL4FmY4ShBg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Kp7CwPSsEeiXL4FmY4ShBg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KqBwcPSsEeiXL4FmY4ShBg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KqIeIPSsEeiXL4FmY4ShBg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_KqPL0PSsEeiXL4FmY4ShBg" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_KqUrYPSsEeiXL4FmY4ShBg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_KhuwEPSsEeiXL4FmY4ShBg" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_KhuwEfSsEeiXL4FmY4ShBg" processName="supplierpo_api.module.SubmitPO"/>
+    <sca:service xmi:id="_CkoEsPSuEeiXL4FmY4ShBg" name="order">
+      <sca:interface.wsdl xmi:id="_CkorwPSuEeiXL4FmY4ShBg" interface="http://xmlns.example.com/20181130195811PLT#wsdl.interface(order)"/>
+    </sca:service>
+    <sca:reference xmi:id="_ohs44PSuEeiXL4FmY4ShBg" name="PurchaseOrder">
+      <sca:interface.wsdl xmi:id="_ohs44fSuEeiXL4FmY4ShBg" interface="http://www.tibco.com/PurchaseOrder/#wsdl.interface(PurchaseOrder)" scaext:wsdlLocation="../Service%20Descriptors/PurchaseOrderConcrete.wsdl"/>
+    </sca:reference>
+  </sca:component>
+</sca:composite>

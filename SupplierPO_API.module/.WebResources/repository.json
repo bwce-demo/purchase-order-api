@@ -1,0 +1,16 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [{
+            "localTimestamp": 1543588890978,
+            "localURI": "/SupplierPO_API.module/Service Descriptors/PurchaseOrder_1.0.0.json",
+            "disabled": false,
+            "remoteTimestamp": 1543567033000,
+            "localHash": "5341664a77d1b7ea3b13eb8e9b3e1c5147d447ba",
+            "remoteId": "87",
+            "remoteHash": "5341664a77d1b7ea3b13eb8e9b3e1c5147d447ba"
+        }],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": []
+}
